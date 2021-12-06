@@ -1,0 +1,7 @@
+
+<div>
+    <h5>LogIN</h5> 
+    <input type="text" [(ngModel)]='userid'  placeholder="Enter Name"> &nbsp;
+    <input type="text" [(ngModel)]='password' placeholder="Enter Password"><br><br>
+    <button type="button" type="submit" routerLinkActive="active" [routerLink]="['/userlogin']" [queryParams]="{uid : userid, pwd : password}">User Login</button>
+</div>

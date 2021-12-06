@@ -1,0 +1,459 @@
+<html>
+  <head>
+    <title>My first angular application</title>
+  </head>
+  <body>
+    <h3 style="text-align: center;">Day 1</h3>
+
+    <h1>Keshav</h1>
+    <h2>First Angular App</h2><br>
+    <h4>Interpolation</h4><br>
+    Number data is - {{inumber}}<br>
+    String data is -  {{str}}<br><br>
+    <u>user details</u> - <br>
+    user id : {{user.uid}}<br>
+    password : {{user.pwd}}<br><br>
+    <u>Insurance Details are</u> - <br>
+    policyNo:{{insuranceObj.policyNo}}<br>
+    policyHoldersName:{{insuranceObj.policyHoldersName}}<br> 
+    AmountOnMaturity:{{insuranceObj.AmountOnMaturity}}<br>
+    Nominee:{{insuranceObj.Nominee}}<br>
+    EMI:{{insuranceObj.EMI}}<br>
+    Duration:{{insuranceObj.Duration}}<br><br>
+
+    <h4>Image with property binding</h4><br>
+    <img [src]="imgURL" height="200px" width="250px"><br><br>
+
+    <h4>Button toggle</h4><br>
+    <button  (click)="EnableButton()">Enable Button</button>
+    <button (click)="DisableButton()">Disable Button</button><br><br>
+    <button [disabled]='bDisableButton'>Simple Button</button><br><br>
+
+    <h4>Email verification</h4><br>
+    <input #email placeholder="Enter Email">
+    <button (click)="verifyEmail(email.value)">verify email</button><br><br>
+
+    <h4>phone number verification</h4><br>
+    <input  type="number" #phone placeholder="Enter Phone">
+    <button (click)="verifyPhone(phone.value)">verify phone</button><br><br>
+
+    <h4>Two way data binding</h4><br>
+    <input type="number" [(ngModel)]=NumberTwoWayDataBinding>
+    Given number : {{NumberTwoWayDataBinding}}<br><br>
+
+    <h4>Parent to child  and child to parent</h4><br>
+    Enter input in parent : <input type="text" [(ngModel)]=strParentToChild><br>
+    <app-child [strParentToChild]='strParentToChild'
+      [objectParentToChild]='objectParentToChild'
+      (messageToEmit)="getMessage($event)">
+    </app-child><br>
+    Message from Child to Parent : {{strMsgFromChild}}<br><br>
+
+    <h3 style="text-align: center;">Day 2</h3>
+
+    <h4>Log In</h4>
+    <input type="text" #username placeholder="Enter Name"> &nbsp;
+    <input type="text" #password placeholder="Enter Password"><br>
+    <button (click)="validateLogIn(username.value,password.value)">Submit</button><br>
+    <p [ngStyle]="{'color' : (result == 'valid user')?'green' : 'red'}">{{result}}</p><br><br>
+    
+    <h4>NgClass</h4>
+    <button [ngClass]="['btn btn-danger','button123']">Button</button>
+
+    <div [ngClass]="(bCustomer==true)?'customer':'employee'" class="container" style="width: 30%;">
+      <form method="get">
+        User ID &nbsp;&nbsp;&nbsp;  : <input type="text" /><br><br>
+        Password : <input type="text"/><br><br>
+        <input type="submit" value="login"><br><br>
+      </form>
+      <button type="button" (click)="changeToCustomer()">Change to Customer</button>
+      <button type="button" (click)="changeToEmployee()">Change to Employee</button>
+    </div><br>
+
+    <h4>NgStyle</h4>
+    <pre>
+      text color - <input type="text" [(ngModel)]="strColor"> <br> 
+      font-size  - <input type="text" [(ngModel)]="strFontSize"> <br> 
+      Bg color   - <input type="text" [(ngModel)]="BackgroundColor"> <br>
+      border     - <input type="text" [(ngModel)]="border1"> <br>
+      <p [ngStyle]="{'color' : strColor, 'font-size' : strFontSize + 'px','background-color':BackgroundColor,'border':border1}">This is ngStyle...</p><br>
+    </pre>
+
+    <h4>NgStyle with if conditon</h4>
+    Are you a customer ? yes/no&nbsp;<input type="text" [(ngModel)]="strCustomer"> <br> 
+    <p [ngStyle]="{'background-color' : (strCustomer.toUpperCase() == 'YES')?'green' : 'red', color : 'black'}">AI checking</p><br>
+
+    <h4>NgFor - Unordered list</h4>
+    <ul> 
+      <li *ngFor="let user of userList"> 
+        {{user.uid}}, {{user.name}} 
+      </li> 
+    </ul>
+
+    <h4>NgFor - Table</h4>
+    <div class="container"> 
+      <table class="table table-hover table-bordered"> 
+        <thead> 
+          <th> User Id </th> 
+          <th> Name </th>
+          <th> Password </th>
+        </thead> 
+        <tbody> 
+          <tr *ngFor="let user of userList2"> 
+            <td> {{user.uid}}</td> 
+            <td> {{user.name}}</td> 
+            <td> {{user.pwd}}</td> 
+          </tr> 
+        </tbody> 
+      </table> 
+    </div>
+    <br><br>
+
+    <h4>NgIf</h4>
+    <button type="button" (click)="goodMorning()">Good Morning </button> 
+    <button type="button" (click)="goodEvening()">Good Evening </button> 
+    <div *ngIf = "bMorning == true">  
+      <b> Good Morning.</b> 
+    </div> 
+    <div *ngIf = "bEvening == true"> 
+      <b> Good Evening.</b> 
+    </div>
+    <br><br>
+
+    <h4>NgSwitch</h4>
+    Enter Number from 1 to 5 : <input type="text" [(ngModel)]='strData'><br>
+    <div [ngSwitch]='strData'> 
+      <div *ngSwitchCase = "1"> One </div> 
+      <div *ngSwitchCase = "2"> Two </div>  
+      <div *ngSwitchCase = "3"> Three </div> 
+      <div *ngSwitchCase = "4"> Four </div> 
+      <div *ngSwitchCase = "5"> Five </div> 
+      <div *ngSwitchDefault> This is default..</div> 
+    </div><br><br>
+
+    <h4>Login / Signin forms</h4>
+    <div *ngIf = "login == true"> 
+      <h5>LogIN</h5> 
+      <input type="text" #username placeholder="Enter Name"> &nbsp;
+      <input type="text" #password placeholder="Enter Password"><br><br>
+      <button type="button" (click)="Login()">Login</button>&nbsp; 
+      <button type="button" (click)="Signin()">Create new account! </button> 
+    </div> 
+    <div *ngIf = "signin == true">
+      <h5>SignIN</h5> 
+      <input type="text" #username placeholder="Enter Name"> &nbsp;
+      <input type="text" #password placeholder="Enter Password"><br><br>
+      <button type="button" (click)="Signin()">Register</button>&nbsp;
+      <button type="button" (click)="Login()">Back to login! </button>
+    </div><br><br>
+
+    <h3 style="text-align: center;">Day 3</h3>
+
+    <h4>Pipes - uppercase and lowercase</h4>
+    <input type="text" [(ngModel)]='strDataToConvert'> <br>
+    Original String {{strDataToConvert}} <br> 
+    Given String in Upper case : {{strDataToConvert | uppercase}} <br> 
+    Given String in Lowercase : {{strDataToConvert | lowercase}}<br><br>
+
+    <h4>Pipes - currency</h4>
+    <input type="text" [(ngModel)]='iCurrencyData'> <br> 
+    Amoount in USD : {{iCurrencyData | currency : 'USD'}} <br> 
+    Amoount in INR : {{iCurrencyData | currency : 'INR'}} <br>
+    Amoount in UKR : {{iCurrencyData | currency : 'UKR'}} <br> 
+    Amoount in YEN : {{iCurrencyData | currency : 'YEN'}} <br> 
+    Amoount in RUB : {{iCurrencyData | currency : 'RUB' : 'symbol'}} <br>  
+    Amoount in EUR : {{iCurrencyData | currency : 'EUR'}} <br><br>
+
+    <h4>Pipes - Date</h4>
+    Todays date in Millis : {{todayDateInMillis}} <br> 
+    Todays date in Mills piped to Date pipe : {{todayDateInMillis|date}}<br> <br>
+    Todays date in Date obj : {{todaysDateInDateObj}} <br> 
+    Todays date in Date Obj with date pipe : {{todaysDateInDateObj | date}} <br><br> 
+    Todays date in string format : {{todaysDateInStringFormat}} <br> 
+    Date i string format with date pipe : {{todaysDateInStringFormat | date}}<br> <br><br> 
+    Short date : {{todaysDateInDateObj | date : 'short'}} <br> 
+    Medium date : {{todaysDateInDateObj | date : 'medium'}} <br> 
+    Long date : {{todaysDateInDateObj | date : 'long'}}<br>
+    Full date : {{todaysDateInDateObj | date : 'full'}}<br><br>
+
+    <h4>Pipes - JSON</h4>
+    JSON Object : {{jsonUserObj}} <br> 
+    JSON Object with json Pipe : {{jsonUserObj | json}} <br><br> 
+    JSON Array of objects {{jsonStudentobjs}}<br> 
+    JSON Array of Objects with json pipe {{jsonStudentobjs | json}}<br><br>
+
+    <h4>Pipes - decimal</h4>
+    Original data : {{iDataForDecimalPipe}} <br> 
+    Using decimal pipe '1.0-2' : {{iDataForDecimalPipe | number : '1.0-2'}} <br> 
+    Using decimal pipe '1.0-3' : {{iDataForDecimalPipe | number : '1.0-3'}} <br><br>
+
+    <h4>Pipes - percent</h4>
+    Orginal Data : {{iDataForPercentPipe}} <br> 
+    Data with percent pipe : {{iDataForPercentPipe | percent}} <br> 
+    Data with percent pipe with decimal digits (1.2-5) : {{iDataForPercentPipe | percent : '1.2-5'}} <br><br>
+
+    <h4>Pipes - slice</h4>
+    Original Data : {{strDataForslicePipe}} <br> 
+    Slicing from 2nd position upto 5th position : {{strDataForslicePipe | slice : 2 : 5}} <br> 
+    Slicing from 2nd Postion from last 2 characters : {{strDataForslicePipe | slice : 2 : -3}} <br> 
+    Leaving first 4 characters, rest are displayed : {{strDataForslicePipe | slice : 4}} <br> 
+    -5 is 5 characters from last : {{strDataForslicePipe | slice : -5}}<br>
+    <pre>
+      Enter String      : <input type="text" [(ngModel)]='strDataToConvert'>
+      Enter start index : <input type="number" [(ngModel)]='startIndex'>
+      Enter last index  : <input type="number" [(ngModel)]='lastIndex'>
+      <b *ngIf="lastIndex==0;else elseBlock">sliced string is  : {{strDataToConvert | slice : startIndex}}</b>
+      <ng-template #elseBlock><b>sliced string is  : {{strDataToConvert | slice : startIndex:lastIndex}}</b></ng-template>
+    </pre>
+
+    <h4>Custom Pipes - tempConverter</h4>
+    Enter Temperature in F - <input type="text" [(ngModel)]='iFarent'> <br>
+    Given Data : {{iFarent}} <br> 
+    Farenheit to Celcuis : {{iFarent | tempConverter : 'ToCelcius' | number : '1.0-2'}}<br><br><br> 
+    Enter Temperature in C - <input type="text" [(ngModel)]='iCelcius'><br>
+    Given Data in Celcius : {{iCelcius}} <br> 
+    Celcius to Farenheit : {{iCelcius | tempConverter : 'ToFaren' | number : '1.0-2'}}<br><br>
+
+    <h4>Custom Pipes - Pure vs Impure</h4>
+    <div id='pure/impure'>
+      {{purevalue | purepipe}}<br>
+      {{impurevalue | impurepipe}}<br>
+    </div>
+
+    <h4>Custom Pipes - uppercase</h4>
+    Enter String - <input type="text" [(ngModel)]='strToCapitalize'><br>
+    Capitalized version of Data : {{strToCapitalize | customUppercase}}<br><br>
+    
+    <h4>Custom Pipes - user details using filter</h4>
+    <div class='container'>
+      <h5>User Details</h5>
+      <span>Search By First Name </span><input type="text" [(ngModel)]='nameString'><br/><br/>
+      <table class="table table-sm table-striped m-t-4">
+        <thead class='thead-dark'>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Department</th>
+            <th>Salary</th>
+            <th>Date of Joining</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users | filter:nameString">
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{user.dept}}</td>
+            <td>{{user.salary}}</td>
+            <td>{{user.doj | date:'dd/MM/yyyy'}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <button type="button" class='btn btn-success btn-sm' (click)="enableAddUser()">Add User</button>&nbsp;
+      <button type="button" class='btn btn-success btn-sm' (click)="reset()">Reset</button>&nbsp;
+      <p *ngIf='addUserEnable==true'>
+        <input type="text" #firstname placeholder="Enter First Name"> &nbsp;
+      <input type="text" #lastname placeholder="Enter Last Name">&nbsp;
+      <input type="text" #dept placeholder="Enter Department"> &nbsp;
+      <input type="number" #salary placeholder="Enter Salary">&nbsp;
+      <input type="date" #doj placeholder="Enter DOJ"> &nbsp;
+      <button type="button" class='btn btn-success btn-sm' (click)="addUser(firstname.value,lastname.value,dept.value,salary.value,doj.value)">Save</button>
+      &nbsp;&nbsp;<button type="button" class='btn btn-info btn-sm' (click)="clear()">Clear</button>
+      </p>
+    </div><br>
+
+    <h3 style="text-align: center;">Day 4</h3>
+
+    <h4>Parent to child  and child to parent</h4><br>
+    <h5>Sending content parent to child</h5>
+    Enter input in parent : <input type="text" [(ngModel)]=strParentToChild><br>
+    <app-child [strParentToChild]='strParentToChild'
+      [objectParentToChild]='objectParentToChild'
+      (messageToEmit)="getMessage($event)"
+      (objectListToEmit)="getProductList($event)">
+    </app-child><br>
+    Message from Child to Parent : {{strMsgFromChild}}<br><br>
+    <h5>Sending object child to parent</h5>
+    Object List of Products from ProductService class from Child is -<br>
+    <table class="table table-hover m-t-4"> 
+      <thead class="thead-dark"> 
+        <tr> 
+          <th> Product ID </th> 
+          <th> Product Name </th> 
+          <th> Cost </th>
+        </tr> 
+      </thead> 
+      <tbody> 
+        <tr *ngFor="let productobj of objectListFromChild"> 
+          <td>{{productobj.productId}}</td> 
+          <td>{{productobj.productName}}</td> 
+          <td>{{productobj.cost}}</td> 
+        </tr> 
+      </tbody> 
+    </table><br>
+    
+
+
+    <h4>Getting Data from student component from student module</h4>
+    <button (click)="getDataFromAnotherComponent()">Get Data</button> <br>
+    {{dataFromStudentComponent}}<br><br>
+
+    <h4>CRUD Operation with use of Product Service</h4>
+    <div class='container'>
+      <button (click)="getProductData()">Get Products List </button> &nbsp;&nbsp;
+      <input type="text" [(ngModel)]='searchById' placeholder="Serach By Id"> &nbsp;&nbsp;
+      <input type="text" [(ngModel)]='searchByName' placeholder="Search By Name"><br/> <br>
+      <table class="table table-hover m-t-4"> 
+        <thead class="thead-dark"> 
+          <tr> 
+            <th> Product ID </th> 
+            <th> Product Name </th> 
+            <th> Cost </th> 
+            <th> Action </th>
+          </tr> 
+        </thead> 
+        <tbody> 
+          <tr *ngFor="let productobj of arrProdutsObjs | filter:searchById | filter:searchByName"> 
+            <td>{{productobj.productId}}</td> 
+            <td>{{productobj.productName}}</td> 
+            <td>{{productobj.cost}}</td> 
+            <td><button class='btn btn-danger btn-sm' (click)='deleteProduct(productobj.productId)'>Delete</button></td>
+          </tr> 
+        </tbody> 
+      </table>
+      <button type="button" class='btn btn-success btn-sm' (click)="enableAddUser()">Add User</button>&nbsp;
+      <p *ngIf='addUserEnable==true'>
+        <input type="text" #productId placeholder="Enter Product ID"> &nbsp;
+        <input type="text" #productName placeholder="Enter Product Name">&nbsp;
+        <input type="number" #cost placeholder="Enter cost"> &nbsp;
+        <button type="button" class='btn btn-success btn-sm' (click)="addProduct(productId.value,productName.value,cost.value)">Save</button>
+        &nbsp;&nbsp;<button type="button" class='btn btn-info btn-sm' (click)="clear()">Clear</button>
+      </p>
+    </div><br>
+
+    <h3 style="text-align: center;">Day 5</h3>
+
+    <h4>User data from user DB.json with help of UserRestService</h4>
+    <div class="container">
+      <b>JSON Server Data</b><br> 
+      <table class="table table-hover m-t-4"> 
+        <thead class="thead-dark"> 
+          <tr> 
+            <th *ngFor="let header of user_column">{{header}}</th> 
+          </tr> 
+        </thead> 
+        <tbody> 
+          <tr *ngFor="let users of arrUsers"> 
+            <td>{{users.id}}</td> 
+            <td>{{users.firstName}}</td> 
+            <td>{{users.lastName}}</td> 
+            <td>{{users.email}}</td> 
+            <td>{{users.location}}</td>
+            <td>
+              <button (click)="deleteUserRecord(users.id)" class="btn btn-danger btn-sm">Delete</button>
+            </td> 
+          </tr> 
+        </tbody> 
+      </table>
+      <button type="button" class='btn btn-success btn-sm' (click)="enableAddUser()">Insert Record</button>&nbsp;
+      <p *ngIf='addUserEnable==true'>
+        <input type="number" #userid placeholder="Enter UserID"> &nbsp;
+        <input type="text" #firstname placeholder="Enter First Name">&nbsp;
+        <input type="number" #lastname placeholder="Enter Last Name"> &nbsp;
+        <input type="email" #email placeholder="Enter Email"> &nbsp;
+        <input type="text" #location placeholder="Enter Location"> &nbsp;
+        <button type="button" class='btn btn-success btn-sm' (click)="insertUserRecord(userid.value,firstname.value,lastname.value,email.value,location.value)">Save</button>
+        &nbsp;&nbsp;<button type="button" class='btn btn-info btn-sm' (click)="clear()">Clear</button>
+      </p>
+    </div><br>
+
+    <h4>Insurance data from insurance DB.json with help of InsuranceRestService</h4>
+    <div class="container">
+      <b>JSON Server Data</b><br> 
+      <table class="table table-hover m-t-4"> 
+        <thead class="thead-dark"> 
+          <tr> 
+            <th *ngFor="let header of insurance_column">{{header}}</th> 
+          </tr> 
+        </thead> 
+        <tbody> 
+          <tr *ngFor="let insurance of arrInsurance"> 
+            <td>{{insurance.id}}</td> 
+            <td>{{insurance.policyHolderName}}</td> 
+            <td>{{insurance.policyAmount}}</td> 
+            <td>{{insurance.emiAmount}}</td> 
+            <td>{{insurance.nomineeName}}</td>
+            <td>
+              <button (click)="deleteInsuranceRecord(insurance.id)" class="btn btn-danger btn-sm">Delete</button> &nbsp;
+              <button (click)="onEditInsuranceRecord(insurance)" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
+            </td> 
+          </tr> 
+        </tbody> 
+      </table>
+      <button type="button" class='btn btn-success btn-sm' (click)="clickAddButton()" data-bs-toggle="modal" data-bs-target="#exampleModal">Insert Record</button>&nbsp;
+    </div><br>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form [formGroup]="formValue">
+              <div class="mb-3">
+                <label for="policyNo" class="form-label">Policy No.</label>
+                <input type="number" formControlName="policyNo" class="form-control" #policyNo>
+              </div>
+              <div class="mb-3">
+                <label for="policyHolderName" class="form-label">Policy Holder Name</label>
+                <input type="text" formControlName="policyHolderName" class="form-control" #policyHolderName>
+              </div>
+              <div class="mb-3">
+                <label for="policyAmount" class="form-label">Policy Amount</label>
+                <input type="number" formControlName="policyAmount" class="form-control" #policyAmount>
+              </div>
+              <div class="mb-3">
+                <label for="emiAmount" class="form-label">EMI Amount</label>
+                <input type="number" formControlName="emiAmount" class="form-control" #emiAmount>
+              </div>
+              <div class="mb-3">
+                <label for="nomineeName" class="form-label">Nominee Name</label>
+                <input type="text" formControlName="nomineeName" class="form-control" #nomineeName>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" *ngIf="showAdd" class="btn btn-primary" (click)="insertInsuranceRecord()" data-bs-dismiss="modal">Add</button>
+            <button type="button" *ngIf="showUpdate" class="btn btn-primary" (click)="editInsuranceRecord()" data-bs-dismiss="modal">Update</button>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="text-align: center;">Day 6</h3>
+    <a href="#" (click)="logInForAuthGuard()">Login</a> <br>
+    <a href="#" (click)="logoutForAuthGuard()">Logout</a> <br>
+    <nav class="navbar navbar-dark bg-dark mb-5"> 
+      <div class="container"> 
+        <ul class="nav nav-pills"> 
+          <li class="nav-item"> <a class="nav-link" routerLinkActive="active" routerLink="/home">Home</a></li>
+          <li class="nav-item"> <a class="nav-link" routerLinkActive="active" routerLink="/about">About</a> </li>
+          <li class="nav-item"> <a class="nav-link" routerLinkActive="active" routerLink="/products">Product</a> </li>
+          <li class="nav-item"> <a class="nav-link" routerLinkActive="active" routerLink="/contact">Contact</a> </li>
+          <li class="nav-item"> <a class="nav-link" routerLinkActive="active" [routerLink]="['/userlogin']" [queryParams]="{uid : strUIDForQueryParams, pwd : strPWDForQueryParams}">User Login</a> </li>
+        </ul> 
+      </div> 
+    </nav>
+
+  </body>
+</html>
+
+
+<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+
+<router-outlet></router-outlet>

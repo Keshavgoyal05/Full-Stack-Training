@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title>Java Script Demo</title>
+    </head>
+    
+    <script>
+        let x=5;
+        //let x="keshav";
+        console.log("value of x : "+x);
+        var name="Keshav";
+        console.log("name is "+name);
+    </script>
+
+    <body>
+        <input type="text" placeholder="Name" id="name">
+        <input type="number" id="num" placeholder="Enter No.">
+        <input type="button" onclick="validateAge()" value="print table">
+        <p id="data">Your Table is : <br></p>
+        <br>
+        <pre>
+        Basic Salary : <input type="number" id="basic"><br>
+        HRA          ; <input type="number" id="hra"><br>
+        DA           : <input type="number" id="da"><br>
+        Deduction    : <input type="number" id="deduction"><br>
+        PF           : <input type="number" id="pf"><br>
+        <input type="submit" onclick="calcSalary()" id="getsalary"><br>
+        <b id="salary">Your Salary is : </b>
+        </pre>
+        
+
+        <script>
+            function calcSalary(){
+                document.getElementById("salary").innerHTML+=parseInt(document.getElementById("basic").value) + 
+                parseInt(document.getElementById("hra").value) + parseInt(document.getElementById("da").value) - 
+                parseInt(document.getElementById("deduction").value) - parseInt(document.getElementById("pf").value);
+            }
+            function validateAge(){
+                var num=parseInt(document.getElementById("num").value);
+                if(num>0){
+                    alert("you are ready to go");
+                    printTable();
+                }
+                else{
+                    alert("Number should be greater than 0");
+                }
+                
+            }
+            function printTable(){
+                num=document.getElementById("num");
+                for(var i=1;i<=10;i++){
+                    document.getElementById("data").innerHTML+=parseInt(num.value)+"*"+i+"="+parseInt(num.value)*i+"<br>";
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,112 @@
+<html>
+    <head>
+        <title>SIGN UP</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <style>
+            * {
+              box-sizing: border-box;
+            }
+            
+            
+            table{
+                border-radius: 15px;
+                border-collapse: collapse;
+                padding: 20px;
+                
+            }
+            input{
+                border-radius: 8px;
+                
+            }
+            #ip1{
+                border-radius: 8px;
+                height: 35;
+            }
+            th{
+                text-align:left;
+                padding: 8px;
+            }
+            .btn {
+            border-radius: 15px;
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-family:Arial, Helvetica, sans-serif;
+            outline: 0;
+            color: rgb(107, 48, 48);
+            background: color-primary;
+            transition: 0.3s;
+            }
+            
+        </style>
+    </head>
+
+    <body><header><br><br><br><br></header>
+        <center>
+            <form action="#">
+            <table>
+                <tr>
+                    <th colspan="2"><h1 style="color: rgb(153, 48, 48);"><center>Registration</center></h1></th>
+                </tr>
+                <tr>
+                    <th>First Name</th>
+                    <th><input type="text" id="ip1" name="first" required></th>
+                </tr>
+                <tr>
+                    <th>Last Name</th>
+                    <th><input type="text" id="ip1" name="last"></th>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <th><input type="email" name="email" id="ip1"></th>
+                </tr>
+                <tr>
+                    <th>Password</th>
+                    <th><input type="password" id="ip1" name="second" ></th>
+                </tr>
+                <tr>
+                    <th>Confirm Password</th>
+                    <th><input type="password" id="ip1" name="second" ></th>
+                </tr>
+                <tr>
+                    <th>Gender</th>
+                    <th>
+                        <input type="radio" id="m" name="gender" value="Male">
+                        <label for="html">male</label>&nbsp;&nbsp;
+                        <input type="radio" id="f" name="gender" value="Female">
+                        <label for="html">female</label>
+                    </th>
+                </tr>
+               
+                <tr>
+                    <th>Country</th>
+                    <th><input list="Country" name="Country" id="ip1">
+                        <datalist id="Country">
+                            <option value="India">
+                            <option value="USA"> 
+                            <option value="Japan">
+                            <option value="London">
+                            <option value="France">
+                        </datalist>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <th><textarea rows="4" cols="20"  id="ip1" name="comment" placeholder="type address.."></textarea></th>
+                </tr>
+                <tr>
+                    <th>Date of Birth</th>
+                    <th><input type="date"  id="ip1" name="birthday" min="1947-08-15" max="1999-09-05"></th>
+                </tr>
+                <tr>
+                    <th colspan="2"><input class="btn" type="submit" value="Register"/></th>
+                </tr>
+            </table>
+        </form>
+    </center>
+    </body>
+</html>
+
+

@@ -1,0 +1,64 @@
+
+<div class="container"> 
+    <table class="table table-hover m-t-4"> 
+      <thead class="thead-dark"> 
+        <tr> 
+          <th *ngFor="let header of insurance_column">{{header}}</th> 
+        </tr> 
+      </thead> 
+      <tbody> 
+        <tr *ngFor="let row of arrInsurance"> 
+          <td>{{row.policy_no}}</td> 
+          <td>{{row.policyHolderName}}</td> 
+          <td>{{row.policyAmount}}</td> 
+          <td>{{row.maturityAmount}}</td> 
+          <td>{{row.nominee}}</td>
+          <td>
+            <button (click)="deleteInsuranceRecord(row.policy_no)" class="btn btn-danger btn-sm">Delete</button> &nbsp;
+            <button (click)="onEditInsuranceRecord(row)" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal1">Edit</button>
+          </td> 
+        </tr> 
+      </tbody> 
+    </table>
+    <button type="button" class='btn btn-success btn-sm' (click)="clickAddButton()" data-bs-toggle="modal" data-bs-target="#exampleModal1">Insert Record</button>&nbsp;
+</div><br>
+
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Insurance Table</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="form">
+            <div class="mb-3">
+              <label for="policy_no" class="form-label">Policy No.</label>
+              <input type="number" formControlName="policy_no" class="form-control" #policyNo>
+            </div>
+            <div class="mb-3">
+              <label for="policyHolderName" class="form-label">Policy Holder Name</label>
+              <input type="text" formControlName="policyHolderName" class="form-control" #policyHolderName>
+            </div>
+            <div class="mb-3">
+              <label for="policyAmount" class="form-label">Policy Amount</label>
+              <input type="number" formControlName="policyAmount" class="form-control" #policyAmount>
+            </div>
+            <div class="mb-3">
+              <label for="maturityAmount" class="form-label">EMI Amount</label>
+              <input type="number" formControlName="maturityAmount" class="form-control" #emiAmount>
+            </div>
+            <div class="mb-3">
+              <label for="nominee" class="form-label">Nominee Name</label>
+              <input type="text" formControlName="nominee" class="form-control" #nomineeName>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" *ngIf="showAdd" class="btn btn-primary" (click)="insertInsuranceRecord()" data-bs-dismiss="modal">Add</button>
+          <button type="button" *ngIf="showUpdate" class="btn btn-primary" (click)="editInsuranceRecord()" data-bs-dismiss="modal">Update</button>
+        </div>
+      </div>
+    </div>
+</div>

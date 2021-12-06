@@ -1,0 +1,9 @@
+.modal{
+    background-image: linear-gradient(
+        #c31432,
+        #240b36);
+}
+.modal-content{
+    background-color: rgb(211, 233, 219);
+}
+

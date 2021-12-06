@@ -1,0 +1,20 @@
+<button type="button" (click)="dislayAll()">Display All </button><br><br>
+<table class="table table-hover m-t-4"> 
+    <thead class="thead-dark"> 
+        <tr> 
+            <th> Product ID </th> 
+            <th> Product Name </th> 
+            <th> Cost </th> 
+        </tr> 
+    </thead> 
+    <tbody> 
+        <tr *ngFor="let productobj of arrProducts"> 
+            <td>{{productobj.productId}}</td> 
+            <td>{{productobj.productName}}</td> 
+            <td>{{productobj.cost}}</td> 
+        </tr> 
+    </tbody> 
+</table>
+
+<input type="number" [(ngModel)]="idForProductsRouting"> 
+<button type="button" (click)="routeBasedonId()">Route to NewURL With this data </button> <br/><br/> 

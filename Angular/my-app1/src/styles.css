@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+.button123{
+    padding : 0 6px 0 6px; margin : 16px 18px 16px 18px; font-size: 20px; text-align: center; text-transform: uppercase; 
+}
+
+.customer{
+     background-color: rgb(190, 79, 79); 
+} 
+.employee{
+     background-color: rgb(94, 94, 155); 
+} 
+/* div{
+     margin : auto; border: 2px solid rgb(10, 10, 10); padding : 10px; width:30%;
+} */
+p{
+    display: inline-block;
+}
+h4{
+    font-family: Cambria;
+    background-color: rosybrown;
+}
+h3{
+    font-family: 'Gill Sans';
+    background-color: rgb(19, 148, 177);
+    border: 4px initial black;
+}
+.thead-dark {
+    color: rgb(255, 255, 255);
+    background-color: #0c0c0c;   
+}
+table{
+    background-color: rgb(228, 222, 222);
+}

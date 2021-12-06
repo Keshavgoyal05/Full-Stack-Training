@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <script>
+            function test(){
+                var r=document.getElementById("r");
+                var g=document.getElementById("g");
+                var b=document.getElementById("b");
+                var colo= "rgb("+r.value+","+g.value+","+b.value+")";
+                document.body.style.backgroundColor=colo;
+            }
+            document.cookie="username=keshav";
+            console.log("cookie : "+ document.cookie);
+        </script>
+        
+    </head>
+    <body>
+        <p>
+            <pre>
+                i have 100 &pound;
+                i have 1000 &yen;
+                i have 500 &euro;
+            </pre>
+            this technology copyrighted &copy; keshav technology<br><br><br>
+            <h1>
+                LOGIN Screen
+            </h1>
+            <form action="url of server" method="get" id="userform" novalidate>
+                user id: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="first" name="first" placeholder="Enter Name" autocomplete="off"><br><br>
+                password: &nbsp;&nbsp;<input type="password" id="second" name="second"><br><br>
+                
+                <input type="radio" id="html" name="fav_lang" value="HTML">
+                <label for="html">HTML</label><br>
+                
+                <input type="radio" id="css" name="fav_lang" value="CSS">
+                <label for="css">CSS</label><br>
+
+                <input type="radio" id="js" name="fav_lang" value="JavaScript">
+                <label for="js">JavaScript</label><br>
+
+                <input type="checkbox" id="vehical1" name="vehical1" value="Bike">
+                <label for="vehical1">Bike</label><br>
+                
+                <input type="checkbox" id="vehical2" name="vehical2" value="Car">
+                <label for="vehical2">Car</label><br>
+                
+                State<input list="State" name="State">
+                <datalist id="State">
+                    <option value="California">
+                    <option value="Washington"> 
+                    <option value="Montana">
+                    <option value="Nevada">
+                    <option value="Bangalore">
+                </datalist><br>
+
+                Comment: <br>
+                <textarea rows="4" cols="10" name="comment">Enter Text Here..</textarea><br><br>
+
+                <input type="number" name="age" min="1" max="18" step="1" value="0"><br><br>
+
+                <input type="date" name="birthday" min="1947-08-15" max="1999-09-05"><br><br>
+
+                Color of background:
+                <input type="color" name="color"><br><br>
+
+                Month<input type="month" name="birthmonth"><br><br>
+
+                Week<input type="week" name="birthweek"><br><br>
+
+                time<input type="time" name="birthtime"><br><br>
+
+                datetime-local<input type="datetime-local" name="datetime"><br><br>
+
+                Email<input type="email" name="email"><br><br>
+
+                Decide background gradient:<br/>
+                Red: 0 <input type="range" onchange="test()" name="r" id="r" min="0" max="255">255<br/>
+                Green: 0 <input type="range" onchange="test()" name="g" id="g" min="0" max="255">255<br/>
+                Blue: 0 <input type="range" onchange="test()" name="b" id="b" min="0" max="255">255<br/><br/>
+
+                <input type="submit" value="login" class="button" formmethod="post" formtarget="_blank">
+
+            </form>
+        </p>
+    </body>
+</html>

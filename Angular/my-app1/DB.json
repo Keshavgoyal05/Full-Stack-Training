@@ -1,0 +1,41 @@
+{
+  "users": [
+    {
+      "id": 101,
+      "firstName": "charan",
+      "lastName": "Kumar",
+      "email": "kcharankumar@gmail.com",
+      "location": "Bangalore"
+    },
+    {
+      "id": 102,
+      "firstName": "Keshav",
+      "lastName": "Goyal",
+      "email": "keshavgoyal885.kg@gmail.com",
+      "location": "Hyderabad"
+    }
+  ],
+  "insurances": [
+    {
+      "id": 101,
+      "policyHolderName": "charan",
+      "policyAmount": 40000,
+      "emiAmount": 3000,
+      "nomineeName": "kumar"
+    },
+    {
+      "id": 103,
+      "policyHolderName": "Gattu",
+      "policyAmount": 50000,
+      "emiAmount": 3600,
+      "nomineeName": "Sharma"
+    },
+    {
+      "id": 104,
+      "policyHolderName": "Keshav",
+      "policyAmount": 50000,
+      "emiAmount": 3500,
+      "nomineeName": "Goyal"
+    }
+  ]
+}

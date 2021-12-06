@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title>ECMA Scripts</title>
+    </head>
+    <script>
+        function calcSalary(basic,hra, da,pf,tax=5){
+            var grossSalary=basic+hra+da;
+            var deduction=pf + (grossSalary*(tax/100))
+            return grossSalary-deduction;
+        }
+        console.log("Salary with default argument : "+calcSalary(100000,50000,20000,10000));
+        console.log("Salary with default argument : "+calcSalary(100000,50000,20000,10000,10));
+
+        //rest operator
+        function display(a,...b){
+            console.log("a: "+a+" b: "+b);
+        }
+        display(1,2,3,4,5,6,7)
+
+        //spread operator
+        var fruits=['mango','orange','watermelon'];
+        var fruit1=['grapes', ...fruits];
+        console.log(fruit1);
+
+        //Destructuring the array
+        var arr=[10,20,8];
+        const[x1,y1,r]=arr;
+        console.log(`x1:${x1} y1:${y1} radius:${r}`);  //template literals
+
+        var showMessage = () =>
+        {
+            console.log("my name is keshav");
+        }
+        showMessage();
+
+        var pow = (x) =>
+        {
+            return Math.pow(x,2);
+        }
+        console.log("5^2 : "+pow(5));
+
+        MEANStack=['MongoDB', 'Express','Angular','Node']
+        iresult=MEANStack.includes('Angular');
+        console.log(iresult);
+
+
+        //promise
+        let success = (msg) =>
+        {
+            console.log("Success function : "+ msg);
+        }
+        let failure = (msg) =>
+        {
+            console.log("failure function : "+ msg);
+        }
+        const promise = age =>
+        {
+            return new Promise((resolve,reject)=>
+            {
+                if(age>18)
+                    resolve("you are ready to go");
+                else
+                    reject("you are not allowed");
+            })
+        }
+        promise(22).then(success,failure);
+        promise(12).then(msg=>{console.log("success : "+msg)}).catch(msg=>{console.log("failure : "+msg)});
+        
+    </script>
+</html>

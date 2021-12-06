@@ -1,0 +1,12 @@
+
+<p>child works!</p>
+Data from parent to child : {{strParentToChild}} <br>
+<h5>Sending object parent to child</h5>
+Object Data from Parent is -<br>
+userid from parent : {{objectParentToChild.uid}}<br>
+password from parent : {{objectParentToChild.pwd}}<br><br>
+
+
+<h5>Sending content child to parent</h5>
+Enter Message in child : <input type="text" [(ngModel)]="strData" (keyup)="sendMessageToParent()">
+
