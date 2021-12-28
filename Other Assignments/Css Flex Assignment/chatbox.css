@@ -1,0 +1,63 @@
+body{
+    background-color :  lightgreen;
+    height : 100%;
+    padding : 1em;
+    box-sizing : border-box;
+  }
+  .container{
+    background-color : grey;
+    display : flex;
+    flex-direction : column;
+    /* justify-content:flex-end; */
+    width : 25%;
+    height : 100%;
+  }
+  .chat-header{
+    background-color : blue;
+    color : white;
+    padding : 0.5em;
+    margin :0;
+  }
+  .chat-body{
+    padding : 1em;
+    display : flex;
+    flex-direction : column;
+    background-color : white;
+  }
+  .chat-footer{
+    display :flex;
+    flex-direction : row;
+    background-color : blue;
+  }
+  textarea{
+    flex : 1;
+  }
+  button{
+      background-color: dodgerblue;
+  }
+  .left-item{
+    display : flex;
+  }
+  .right-item{
+    display :flex;
+    flex-direction : row-reverse;
+  }
+ 
+  .left-message{
+    padding : 0.5em;
+    margin : 0.5em;
+    background-color : pink;
+    border-radius : 1em;
+    width : 50%;
+    box-shadow : 1px 1px 1px 1px rgba(0,0,0,0.5);
+  }
+  
+  .right-message{
+    padding : 0.5em;
+    margin : 0.5em;
+    background-color : black;
+    color : white;
+    border-radius : 1em;
+    width : 50%;
+    box-shadow : 1px 1px 1px 1px rgba(0,0,0,0.5);
+  }

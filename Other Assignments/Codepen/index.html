@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Codepen
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="codepenio">
+        <header class="header">
+            <div class="header-left">
+                <h1>
+                    <img src="https://blog.codepen.io/wp-content/uploads/2012/06/Button-White-Large.png" style="height: 40px;">
+                    CodePen<i class="fa fa-pencil" aria-hidden="true"></i>
+                </h1>
+            </div>
+            <div class="header-button">
+                <button class="button"><i class="fa fa-cloud" aria-hidden="true"></i>&nbsp;Save</button>
+                <button class="button"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;Change View</button>
+                <button class="button">Login</button>
+                <button class="signup">Sign Up</button>
+            </div>
+            
+        </header>
+        <div class="code">
+            <div class="codepenEditior">
+                <div class="codepenEditior-header">
+                    <h3 class="codepenEditior-heading">HTML</h3>
+                </div>
+                <div class="codepenEditior-code">
+                    <textarea class="codepenEditior-input" id="html-codepenEditior" oninput="codeOutput()"></textarea>
+                </div>
+            </div>
+            <div class="codepenEditior">
+                <header class="codepenEditior-header">
+                    <h3 class="codepenEditior-heading">CSS</h3>
+                </header>
+                <div class="codepenEditior-code">
+                    <textarea class="codepenEditior-input" id="css-codepenEditior"  oninput="codeOutput()"></textarea>
+                </div>
+            </div>
+            <div class="codepenEditior">
+                <header class="codepenEditior-header">
+                    <h3 class="codepenEditior-heading">JS</h3>
+                </header>
+                <div class="codepenEditior-code">
+                    <textarea class="codepenEditior-input" id="js-codepenEditior"  oninput="codeOutput()"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="console">
+            <iframe src="" frameborder="0" id="iframe"></iframe>
+        </div>
+    </div>
+</body>
+<script src="./codepenio.js"></script>
+</html>
