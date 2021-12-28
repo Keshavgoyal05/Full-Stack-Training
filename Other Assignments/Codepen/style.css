@@ -4,9 +4,9 @@ html{
   font-family: "Lato", "Lucida Grande", "Lucida Sans Unicode", Tahoma,Sans-Serif;
   color: #fff;
   line-height: 2;
-  font-size: 15px;
+  
 }
-h1,h3 {
+h3 {
   margin: 0;
   letter-spacing: .0.5rem;
   font-weight: bold;
@@ -19,17 +19,21 @@ body {
     margin: 0;
     padding: 0;
 }
-.header {
+.header{
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   background-color: black;
   align-items: center;
-  position: relative;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding: 0.5rem;
+  font-size: 20px;
 }
-.header-button {
-  position: absolute;
-  right: 20px;
+.header-left{
+  margin: 0;
+  padding-left: 0;
+  letter-spacing: .0.5rem;
+  font-weight: bold;
+  display: flex;
 }
 .header-button button {
   background-color: #303131;
