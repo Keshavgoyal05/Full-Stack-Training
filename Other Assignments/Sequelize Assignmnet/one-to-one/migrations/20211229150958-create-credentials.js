@@ -18,7 +18,8 @@ module.exports = {
             tableName:"UserDetails"
           },
           key:"id"
-        }
+        },
+        unique: true
       },
       createdAt: {
         allowNull: false,
